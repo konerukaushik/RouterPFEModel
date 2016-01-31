@@ -1,0 +1,30 @@
+
+Throughput: 
+
+Network Throughput is the average number of packets that are successfully transmitted trough the channel. So, it can be calculated as number of packets sent by number of packets transmitted.
+
+Throughput can be effected intermediate nodes, cables, connectors, size of packets.
+
+Intermediate Nodes --> Intermediate nodes between source and destination will be responsible for throughput. If any intermediate nodes drop the packets then source needs to retransmit the packets
+
+Cables --> If any issues in the cables can cause dropping or corrupting the packets. Any corrupted packets will be dropped once it reaches any intermediate nodes or OS
+
+Connectors --> In general SFP, SFP+ are used to connect any fibre wires to network interfaces. These also play a major role in transmitting packets from wire to nodes. 
+
+Size of Packets --> Size of packets matters as packets sent are jumbo packets then MTU on all the intermediate nodes interfaces needs to be consider.
+
+
+To Increase Throughput we need to have the following
+When Designing and implementing the Topology, need to make sure that cables, connectors are proper Hardware and size of the packets needs to be consider that each and every packet less than MAX MTU of the interfaces. 
+or each and every packets needs be lesser size than default MTU 1920 Bytes.
+
+Intermediate Nodes need to maintain Buffer, Incase of any packet being dropped instead of resending from Source, Immediate previous dropped router can resend it, in this case it can save delay.
+
+Eg:  Sender --- Router1 --- Router2 --- Receiver
+    
+        If packets are dropped at Router2, Instead of resending the packet from 'Sender', 'Router1' can resend it. In this we can save the time.
+
+
+Throughput:  (Dropping 15th packets transmitted from sender (hosta))
+
+Throughput = 100/106   = 0.9433
